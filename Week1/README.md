@@ -2,7 +2,7 @@
 
 python을 아래 **기초** 책으로 공부한지 1개월이 채 지나지 않은 김보건입니다.
 
-![](![img](https://www.wikidocs.net/images//book/j2p_title_new2_S1JyeeE.jpg))
+![img](https://www.wikidocs.net/images//book/j2p_title_new2_S1JyeeE.jpg)
 
 아직 걸음마도 못 떼었는데,  파이썬 LOP 반의 개발을 업으로 하시는 분들과
 
