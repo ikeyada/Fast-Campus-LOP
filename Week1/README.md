@@ -62,5 +62,19 @@ Data의 형태는 행에 비해 열이 많은 wide data가 아니라, 열은 적
 
 
 
+**[Data Import]**
 
+```
+import io
+import pandas as pd
+
+from google.colab import drive
+drive.mount('/content/drive')
+```
+
+```python
+filename = '/content/drive/My Drive/Sample_1 Item.csv'
+data = pd.read_csv(filename)
+data.head()
+```
 
