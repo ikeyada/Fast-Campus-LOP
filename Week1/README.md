@@ -54,9 +54,11 @@ Data의 형태는 행에 비해 열이 많은 wide data가 아니라, 열은 적
 | :--: | ---- | :------: | ------- | ------ | :------: | :----: | :------: | :------: | :----: |
 |  22  | 춘천 | 175.0252 | 77.7416 | 125(%) | 250.2582 |  -30%  | 857.5651 | 376.8361 |  128%  |
 
-첫번째,  **항목 - 지역 2개 조합에 대해** 최근 1개월의
+첫번째,  **항목 - 지역이 동일한 각 조합에 대해** (모든 나라를 포함 합산하여) 
 
-​               **YoY Growth Rate**(전년 동월비)과 **MoM Growth Rate**(동년 전월비)를  구하고,
+​               최근 1개월의  **YoY Growth Rate**(전년 동월비, 20년 6월 vs 19년 6월)과
+
+​               **MoM Growth Rate**(동년 전월비, 20년 6월 vs 20년 5월)를  구하고,
 
 두번째,  최근 해당월까지 **2020 누적 Value**와 동월까지의 **2019 누적 Value**의 YoY Growth Rate을 Add하면 됩니다. 
 
@@ -77,4 +79,17 @@ filename = '/content/drive/My Drive/Sample_1 Item.csv'
 data = pd.read_csv(filename)
 data.head()
 ```
+
+일단 처음부터 수천여개 항목 - 이백여개 나라 - 백여개 국내 지역의 조합을 분석하는 것은 어려울 것 같고,
+
+오로지 1개 항목만 가지고 와서 Sample Data(Sample_1 Item.csv)를 import한 후,
+
+최근 20년 6월 data에 대해 YoY와 QoQ 값을 구해보면서 감을 익히자.
+
+```python
+sum_Value_by_월_지역=data.groupby(['월','지역']).Value.sum()
+print(sum_Value_by_월_지역)
+```
+
+
 
