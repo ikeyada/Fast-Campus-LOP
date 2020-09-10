@@ -52,7 +52,7 @@ Data의 형태는 행에 비해 열이 많은 wide data가 아니라, 열은 적
 
 5. Value : 국내에서 해당 국가로 연결된 Data 항목의 Volume을 숫자값으로 표현
 
-
+------
 
 **[YoY, MoM, YTD 산출 대상을 target data로 지정]**
 
@@ -60,7 +60,7 @@ Data의 형태는 행에 비해 열이 많은 wide data가 아니라, 열은 적
 2. 지역 : 2개만 지정(춘천, 용인)
 3. YoY, MoM 산출 월 : Data의 가장 최근월 / 전월 / 전년 동월 (202006, 201906, 202005)
 
-
+------
 
 **[Output Data]**
 
@@ -85,6 +85,10 @@ Data의 형태는 행에 비해 열이 많은 wide data가 아니라, 열은 적
 ​               **MoM Growth Rate**(동년 전월비, 20년 6월 vs 20년 5월)를  구하고,
 
 두번째,  최근 해당월까지 **2020 누적 Value**와 동월까지의 **2019 누적 Value**의 YoY Growth Rate을 Add하면 됩니다. 
+
+------
+
+그러면 인제 실제로 Data 가공을 해볼까요
 
 
 
@@ -142,6 +146,8 @@ df = sum_Value_by_월_항목_지역.to_frame()
 df['YoY']=df['Value'].pct_change(12)
 df['MoM']=df['Value'].pct_change()
 ```
+
+
 
 **[본인이 한 부분]**
 
