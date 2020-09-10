@@ -159,6 +159,16 @@ df['MoM']=df['Value'].pct_change()
 
 
 
+```
+# 패스트캠퍼스 2주차 강의 15. 복합 인덱스와 인덱스 초기화 동영상 강의에서 배운 reset_index를 적용
+df2= df.reset_index()
+df2
+```
+
+![](https://blogfiles.pstatic.net/MjAyMDA5MTBfMTA0/MDAxNTk5NzIyODM1MzE1.mLEd4VdltxLUpLhm87XF6nV4xeAZMT7ITgaMIM_SPBsg.vF3to7j4bWf75ZKEl6cpOer1l2IcnaOfKmCj-l8msYUg.PNG.ikeyada/200910_sample6_reset_index.PNG)
+
+
+
 **[본인이 한 부분]**
 
 Sample_6 Item.csv (1개 항목)에 대해 원하는 Data만 필터링하여
