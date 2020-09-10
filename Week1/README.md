@@ -149,6 +149,10 @@ df['MoM']=df['Value'].pct_change()
 
 
 
+![](https://blogfiles.pstatic.net/MjAyMDA5MTBfMSAg/MDAxNTk5NzE3MDM0MjA0.HCRdRVuZrblzNiT6dtevXcffwAGWdyJziSVcKKTPEPsg.634JxZJ8J4uqAfkZ_lblnQKs9e3gb4k6H8J7an-d594g.PNG.ikeyada/200910_sample6_YoY_MoM.PNG)
+
+
+
 **[본인이 한 부분]**
 
 Sample_6 Item.csv (1개 항목)에 대해 원하는 Data만 필터링하여
