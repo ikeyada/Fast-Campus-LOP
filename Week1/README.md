@@ -136,6 +136,12 @@ sum_Value_by_월_항목_지역=target.groupby(['월','항목','지역']).Value.s
 print(sum_Value_by_월_항목_지역)
 ```
 
+![](https://blogfiles.pstatic.net/MjAyMDA5MTBfMjIz/MDAxNTk5NzE3NjkyNjg1.QxhQ1wfq45MdPOhgKf0ZfAqQhltAi4D50iC79oAqlzMg.FeA_hyKVn4gSou7wek2ETaB68TGVe7xYaJjVzaUOWSYg.PNG.ikeyada/200910_sample6_groupby.PNG)
+
+
+
+
+
 
 
 ```python
