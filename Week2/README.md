@@ -1,3 +1,15 @@
+금일은 4가지 문제를 여쭤보고자 합니다.
+
+1) WEEK1의 실행 오류 문제 - Blank를 나누기
+
+2) WEEK2 PIVOT에서 NaN 합계 구하기 
+
+3) WEEK2 PIVOT에서 YoY 구하기
+
+4) WEEK2 PIVOT 지역별로 생성하기
+
+
+
 **PLAN**
 
 - STEP1 : Week1 파이썬 코드 실행하여 문제(Error) 여부 확인하기
