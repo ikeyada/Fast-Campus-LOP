@@ -169,6 +169,39 @@ for i in range(5):
 
    ​                    즉  **총 5개 셀 (202006, 201906, 202005, 2020_YTD, 2019_YTD ) 중 하나라도 비어 있는 경우 동작하지 않음**
 
+```PYTHON
+#category = [11]
+category = 11
+#place = ['강원 춘천시']
+place = '강원 춘천시'
+month = 6
+year = 2020
+
+ condition_1 = (df['항목'] == category)
+ condition_2 = (df['지역'] == place)
+ condition_3 = (df['월'] == month)
+ condition_4 = (df['월'] == month-1)
+ condition_5 = (df['연도'] == year) & (df['월'] <= month)
+ condition_6 = (df['연도'] == year-1) & (df['월'] <= month)
+```
+
+
+
+```python
+# df.loc[condition_1 & condition_2 & condition_3].groupby('연도')['Value'].sum()[year-1] # 값 산출 실패
+df.loc[condition_1 & condition_2 & condition_3].groupby('연도')['Value'].sum()[year]     #값 산출 성공
+```
+
+
+
+```
+print(pd.isnull(df.loc[condition_1 & condition_2 & condition_3].groupby('연도')['Value'].sum()[year-1]))
+```
+
+![](https://blogfiles.pstatic.net/MjAyMDA5MTlfMTEy/MDAxNjAwNDc3ODgwMDk3.WAgkNQQ1lQtpi3eWE9jVeKZVJpxpYjfAFUVY-MSjZpgg.oH7WFKLg6yC8BrfAH7GX97LTGbTs2ez1W_wOJcBvWM0g.PNG.ikeyada/200919_groupby_null_%EC%98%A4%EB%A5%98.PNG)
+
+
+
 ## `결측치 처리방안`
 
 1) 결측치를 0으로 만든다 - 나누기 할때는 0으로 나누면 다시 오류임
