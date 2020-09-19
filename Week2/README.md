@@ -98,9 +98,24 @@ def sample_function(category, place, month, year):
     YTD_2020 = df.loc[condition_1 & condition_2 & condition_5]['Value'].sum()
     YTD_2019 = df.loc[condition_1 & condition_2 & condition_6]['Value'].sum()
 
-    전년동월비 = value_2020/value_2019 -1
-    전년누적비 = YTD_2020/YTD_2019  - 1
-    금년전월비 = value_2020/value_previous_month -1
+    #전년동월비 = value_2020/value_2019 -1
+    #전년누적비 = YTD_2020/YTD_2019  - 1
+    #금년전월비 = value_2020/value_previous_month -1
+    
+    if(value_2020 != np.NaN) and (value_2019 != np.NaN):
+      전년동월비 = value_2020/value_2019 -1
+    else:
+      전년동월비= np.NaN
+
+    if(value_2020 != np.NaN) and (value_previous_month != np.NaN):
+      금년전월비 = value_2020/value_previous_month -1
+    else:
+      금년전월비= np.NaN
+
+    if(YTD_2020 != np.NaN) and (YTD_2019 != np.NaN):
+      전년누적비 = YTD_2020/YTD_2019  - 1   
+    else:
+      전년누적비= np.NaN    
 
     ret = {
         '항목': category, 
@@ -154,7 +169,17 @@ for i in range(5):
 
    ​                    즉  **총 5개 셀 (202006, 201906, 202005, 2020_YTD, 2019_YTD ) 중 하나라도 비어 있는 경우 동작하지 않음**
 
-   
+## `결측치 처리방안`
+
+1) 결측치를 0으로 만든다 - 나누기 할때는 0으로 나누면 다시 오류임
+
+​     fillna(0) : 결측치를 0으로 채움
+
+2) 결측치를 가장 작은 소수 숫자를 대입 - YoY가 왜곡 될 수 있어 쓰지 않음
+
+**3) 결측치는 NA로 하고 YoY를 구하지 않고 PASS  :   이 방안을 선택**
+
+
 
 **STEP2 : 또 다른 Output Format 만들기** - 특정 지역의 모든 항목 세부 Data 확인
 
