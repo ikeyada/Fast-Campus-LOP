@@ -1,12 +1,11 @@
-금일은 4가지 문제를 여쭤보고자 합니다.
+WEEK2에서는 
 
-1) WEEK1의 실행 오류 문제 - Blank를 나누기
+1. 9월달의 PLAN을 세우고
+2. WEEK1 CODE 실행 오류 확인 - Blank를 나누기
 
-2) WEEK2 PIVOT에서 NaN 합계 구하기 
+3. Output Format 2 만들기
 
-3) WEEK2 PIVOT에서 YoY 구하기
-
-4) WEEK2 PIVOT 지역별로 생성하기
+를 진행하였습니다. 
 
 
 
@@ -262,3 +261,22 @@ df_춘천=df[df['지역'].isin(['강원 춘천시'])]
 ```
 
 ![](https://blogfiles.pstatic.net/MjAyMDA5MTdfMjU5/MDAxNjAwMzMwMjU0Nzcy.35afSH3NoYuixEPIfmQj4sEP6pnbKEXOjV2atQUw_h4g.2RVcoCfH3lKU2BI8hfgD_0z8-xaU1vTFRXqO01TJupAg.PNG.ikeyada/200916_pivot_output_sum%EC%97%B4_NaN_%EC%98%A4%EB%A5%98.PNG)
+
+**여기서 sum 구할때도 NaN의 문제에 봉착했네요**
+
+
+
+```python
+# 우선 Multi index를 풀어주고
+춘천_p = pd.pivot_table(df_춘천, index=['연도','월'], columns='항목', values='Value',aggfunc=np.sum).reset_index()
+
+춘천_p['sum']=춘천_p.iloc[:,2:].sum(axis=1)
+춘천_p['YoY']=춘천_p['sum'].pct_change(12)
+춘천_p
+```
+
+![](https://blogfiles.pstatic.net/MjAyMDA5MTlfMTUz/MDAxNjAwNDkxMTc1NjU3.s4OJiCHYI9TTG6eKXBuGxQtV2l7V3CPayUfL6gzNHvkg.TZXw63hCEuoJBwBxU5WWaugEfkCB0RA7K2I90qzqiLkg.PNG.ikeyada/200919_output2_%EC%A7%81%EC%A0%91_%EB%A7%8C%EB%93%AC.PNG)
+
+
+
+**output format 2  추출 완료** 
