@@ -30,7 +30,7 @@
 
 **STEP1 : Week1 코드 실행 문제(Error) 확인**
 
-1.  **Data 불러오기**
+1.  **Data 불러오기**
 
 ```python
 # 판다스와 넘파이 라이브러리 불러오기
@@ -148,9 +148,9 @@ for i in range(5):
 
 
 
-# 에러 확인 : 값이 비어 있는 셀은 나누기 오류 발생
+# 에러 확인 : 값이 비어 있는 셀은 나누기 오류 발생
 
-                                             **멘토님에게 도움 요청할 부분**
+                                             **멘토님에게 도움 요청할 부분**
 
 1. 원하는 output format
 
@@ -202,7 +202,7 @@ print(pd.isnull(df.loc[condition_1 & condition_2 & condition_3].groupby('연도'
 
 
 
-## `결측치 처리방안`
+## `결측치 처리방안`
 
 1) 결측치를 0으로 만든다 - 나누기 할때는 0으로 나누면 다시 오류임
 
@@ -216,7 +216,7 @@ print(pd.isnull(df.loc[condition_1 & condition_2 & condition_3].groupby('연도'
 
 **STEP2 : 또 다른 Output Format 만들기** - 특정 지역의 모든 항목 세부 Data 확인
 
-* 환율 column은 나중에 crawling 할 대상 column임
+* 환율 column은 나중에 crawling 할 대상 column임
 
 | 연도 |  월  |  11  |   22   |  33   |  합계  | YoY  |  환율   |
 | :--: | :--: | :--: | :----: | :---: | :----: | :--: | :-----: |
@@ -237,7 +237,7 @@ print(pd.isnull(df.loc[condition_1 & condition_2 & condition_3].groupby('연도'
 | 2020 |  5   |      | 250.26 | 62.46 | 312.71 | 237% | 1230.38 |
 | 2020 |  6   | 3.23 | 175.03 | 48.16 | 226.42 | 116% | 1208.42 |
 
-먼저 하나를 샘플로 만들어 보자
+먼저 하나를 샘플로 만들어 보자
 
 ```python
 # 전체 데이타에서 강원 춘천시만 필터링함
