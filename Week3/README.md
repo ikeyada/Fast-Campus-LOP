@@ -1,5 +1,9 @@
 ### **Project 목적 : 대용량 Data에 대한 엑셀 수작업을 Pandas를 이용한 자동화** 
 
+*feature selection 또는 feature extraction은 과제 범위에 미포함
+
+*output이 하나가 아닌 여러 format을 자동화
+
 
 
 1주차 : 정제된 toy data로 main function 작성
@@ -12,7 +16,7 @@
 
 
 
--3주차-
+- 3주차에 맞닥드린  3가지 문제와 3가지 해결방안을 기록함
 
 #### [1번째 문제] 숫자인 dollar 금액 column을 문자열(object)로 인식하는 오류 발생
 
@@ -105,7 +109,7 @@ df.sort_values(by='금액($)', ascending=[True]).head() # -이 0으로 바뀌었
 
 - 얼핏 보기에 '-'으로 보여도 raw data에 공백이 있는지 없는지 잘 살펴야 함
 
-  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMTI5/MDAxNjAxMDgxNDM4MTYz.A_d0JZkvJvcqlooOKJJZPoNL3xE0NApTxzTdxPJJFfkg.cyGZ_FSCXR3NBkeIxAWptYCjQ6YKti7XmWSyWeQFpvgg.PNG.ikeyada/200926_%EA%B8%88%EC%95%A1%EC%97%90_%ED%95%98%EC%9D%B4%ED%94%88%EC%9D%B4_%EC%9E%88%EC%9D%8C_%EA%B7%B8%EB%9E%98%EC%84%9C_astype%EC%9D%B4_%EC%95%88_%EB%A8%B9%EC%9D%8C2.PNG)
+  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMTEy/MDAxNjAxMTAzNzQzODky.JSOwkE7T0lqF1v_mIL15-45m3VOkQg-v8cSupKK33SMg.C7Vn1xEJytqwrGD4IGQvq_ky7JBrgAr8-C57Bw5CnSEg.PNG.ikeyada/200926_%EA%B8%88%EC%95%A1%EC%97%90_%ED%95%98%EC%9D%B4%ED%94%88%EC%9D%B4_%EC%9E%88%EC%9D%8C_%EA%B7%B8%EB%9E%98%EC%84%9C_astype%EC%9D%B4_%EC%95%88_%EB%A8%B9%EC%9D%8C2.PNG)
 
 
 
@@ -113,7 +117,7 @@ df.sort_values(by='금액($)', ascending=[True]).head() # -이 0으로 바뀌었
 
 ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMjgw/MDAxNjAxMDgzNjI3NjQ3.TOPe-_XhNeVvSFKmauepEMnPr_O_3sFwhZCb97KwBMog.xBM3mPeUdrlH3cHd9VJ7tetqkTz_Nbky0X4E9j7Hatgg.PNG.ikeyada/200926_%ED%95%98%EC%9D%B4%ED%94%88_0_%EB%B3%80%EA%B2%BD_%EC%84%B1%EA%B3%B5_input.PNG)
 
-![](https://blogfiles.pstatic.net/MjAyMDA5MjZfOTIg/MDAxNjAxMDgzNjI3NjQ5.sJjPxcTj_PGHeHG5EOfR7kL0zkQR1bOfGR6MTqkbT74g.P18dql64nd5-XwJEiW3D_cc-RnvuvVs6I5g5BHNi9kcg.PNG.ikeyada/200926_%ED%95%98%EC%9D%B4%ED%94%88_0_%EB%B3%80%EA%B2%BD_%EC%84%B1%EA%B3%B5_output.PNG)
+![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMjk0/MDAxNjAxMTAzOTczODEz.3ixvfkNZdtG5JTcENzwmx8dSAS1knsbMLk5xWomR6xIg.lrjdtl7OP_Lh2DEnHQAbaKLQyZq6MUNPxDBjaFA1cPUg.PNG.ikeyada/200926_%ED%95%98%EC%9D%B4%ED%94%88_0_%EB%B3%80%EA%B2%BD_%EC%84%B1%EA%B3%B5_input.PNG)
 
 
 
