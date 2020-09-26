@@ -162,21 +162,25 @@ output = pd.DataFrame(a)
 
 #### **[3번째 문제] ****여러 개의 월 data를 연속적으로 붙였는데 원본 data가 누락된 것을 확인함**
 
-- 원본 데이타 : 금액 부분에 숫자가 표기됨
+
+
+**①  concat하는 data의 column name이 미세하게 다르면 누락 발생 risk**
+
+- 원본 데이타 : 금액 부분에 44,099라는 숫자가 표기됨
 
   ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMTc3/MDAxNjAxMDgyMDU3ODY5.luJo_ZhWLBaYXJEdznzDrLeiIDkfCcN9ShU_3tEcGZ8g.rxX8u2PXoXfmrwVGpm4r4vxQtnxCnvPyFB5NIbI9Ex8g.PNG.ikeyada/200924_%EC%97%91%EC%85%80_%EC%9B%90%EB%B3%B8_%EB%8D%B0%EC%9D%B4%ED%83%80.PNG)
 
   
 
-- 파이썬에서 붙인 데이타 : 금액 부분이 숫자가 없고 NaN 표기됨
+- 파이썬에서 붙인 데이타 : 금액 부분에 숫자가 없고 NaN 표기됨
 
 ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMTE1/MDAxNjAxMDgyMjQwNjU1.WY3a07JbJnuOjlxLNYQkzcgy7atQutmTMLhSn_Wo-Ocg.9hJiET6__wziypVo65G15fjt8WfKD3WOua75NMrzK7og.PNG.ikeyada/200924_python_%EB%B6%99%EC%9D%B8_%EB%8D%B0%EC%9D%B4%ED%83%80_NaN.PNG)
 
 
 
+- **(특정 조건에 해당하는 row를 추출)** 
 
-
-- 각 월별 data를 합치기 전에는 금액 data가 있었는지를 확인한 결과, 금액 data는 있었음
+  각 월별 data를 합치기 전에는 금액 data가 있었는지를 확인한 결과, 금액 data는 있었음
 
   **즉 각 월별 data를 합친 후에 금액 data가 숫자에서 숫자가 없는 NaN으로 변함**
 
@@ -185,6 +189,8 @@ output = pd.DataFrame(a)
   ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMjE4/MDAxNjAxMDc0NTE1ODY4.G_bV0XozojVqnkeIcgqI-pb9seXjvZbxsK0VLawcd10g.sAO5_oql1UH65Fsm08qJpeVUyZng-t_thzEPb-1psKQg.PNG.ikeyada/200926_%ED%95%A9%EC%B9%98%EA%B8%B0_%EC%A0%84%EC%97%90%EB%8A%94_data%EA%B0%80_%EC%9E%88%EC%97%88%EB%8B%A4.PNG)
 
 
+
+**② column name이 엑셀이나 육안상으로 동일하게 보이지만 잘 합쳐지지 않음**
 
 - data concat 오류 
 
