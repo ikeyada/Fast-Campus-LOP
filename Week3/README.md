@@ -109,7 +109,7 @@ df.sort_values(by='금액($)', ascending=[True]).head() # -이 0으로 바뀌었
 
 - 얼핏 보기에 '-'으로 보여도 raw data에 공백이 있는지 없는지 잘 살펴야 함
 
-  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMTEy/MDAxNjAxMTAzNzQzODky.JSOwkE7T0lqF1v_mIL15-45m3VOkQg-v8cSupKK33SMg.C7Vn1xEJytqwrGD4IGQvq_ky7JBrgAr8-C57Bw5CnSEg.PNG.ikeyada/200926_%EA%B8%88%EC%95%A1%EC%97%90_%ED%95%98%EC%9D%B4%ED%94%88%EC%9D%B4_%EC%9E%88%EC%9D%8C_%EA%B7%B8%EB%9E%98%EC%84%9C_astype%EC%9D%B4_%EC%95%88_%EB%A8%B9%EC%9D%8C2.PNG)
+  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfNDUg/MDAxNjAxMTA1NTY3ODU3.oqxQJde6-RLxKpjwKFp9vkHEag0InTBGoA3UE-wcR1Yg.4N8rvo-vsxa7AXPIk-o0TuHp7HLS-x3C0XiksF7rtZIg.PNG.ikeyada/200926_%EA%B8%88%EC%95%A1%EC%97%90_%ED%95%98%EC%9D%B4%ED%94%88%EC%9D%B4_%EC%9E%88%EC%9D%8C_%EA%B7%B8%EB%9E%98%EC%84%9C_astype%EC%9D%B4_%EC%95%88_%EB%A8%B9%EC%9D%8C2.PNG)
 
 
 
@@ -190,7 +190,7 @@ output = pd.DataFrame(a)
 
   **[data를 합치기 전 금액 column 값 : 숫자 존재]**
 
-  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMjE4/MDAxNjAxMDc0NTE1ODY4.G_bV0XozojVqnkeIcgqI-pb9seXjvZbxsK0VLawcd10g.sAO5_oql1UH65Fsm08qJpeVUyZng-t_thzEPb-1psKQg.PNG.ikeyada/200926_%ED%95%A9%EC%B9%98%EA%B8%B0_%EC%A0%84%EC%97%90%EB%8A%94_data%EA%B0%80_%EC%9E%88%EC%97%88%EB%8B%A4.PNG)
+  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMTY3/MDAxNjAxMTA0ODg0ODY2.yDFn59WCFDKXPKanvqlyEP5jPTikHZHtdx7XYMTdZnog.1bOvAPf3bFDKWl858M_Ddo_mR90sbcLH-CPO64wLcHEg.PNG.ikeyada/200926_%ED%95%A9%EC%B9%98%EA%B8%B0_%EC%A0%84%EC%97%90%EB%8A%94_data%EA%B0%80_%EC%9E%88%EC%97%88%EB%8B%A4_%EC%97%AC%EB%9F%AC%EC%A1%B0%EA%B1%B4%EC%97%90_%EB%A7%9E%EB%8A%94_%ED%96%89_%EC%B6%94%EC%B6%9C.PNG)
 
 
 
@@ -198,7 +198,7 @@ output = pd.DataFrame(a)
 
 - data concat 오류 
 
-  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfODIg/MDAxNjAxMDgxODI5NjAz.cmVw3URblgIVovaNWP4ispVOXt_4SC-_QBKm3q2TeAAg.APeKxY9QMxQcTWaiGSIZd2j9jhfqxumSN-dQzdRzZXsg.PNG.ikeyada/200926_data_concat_%EC%98%A4%EB%A5%98.PNG)
+  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMjI3/MDAxNjAxMTA1MjY3MTc3.dre7QojMZ6dYlCmXlDLZzIckCcHvslrHXD5G83trmUkg.bULCHqBLvA5xPZvV0wNfCi_8I29jIfLNEb-2swNtYdQg.PNG.ikeyada/200926_data_concat_%EC%98%A4%EB%A5%98.PNG)
 
 
 
@@ -214,7 +214,7 @@ output = pd.DataFrame(a)
 
 - column name을 철자가 같아도 다시 hard copy 함. data 붙이기 성공
 
-  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMTg0/MDAxNjAxMDgxNzA0OTk4.8JWHvzV_a8U_i5Aa6byq-LUpqBxGjvV4noR3viECPKcg.Zb2UEkZYSw-FamrFVY06X9aQYmrMbyYGNwUw_CCRnMQg.PNG.ikeyada/200926_data_concat_%EC%84%B1%EA%B3%B5.PNG)
+  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMjg2/MDAxNjAxMTA1MzM5OTQz.Xr2PtLS8dY6b5SwUsqd5kdUZX1tNXqpA6cBK6z6OPDAg.gpt-kKuGlR-KKSwYlyX2iu6_p17aIdhOAq4trzDPVAEg.PNG.ikeyada/200926_data_concat_%EC%84%B1%EA%B3%B5.PNG)
 
 
 
