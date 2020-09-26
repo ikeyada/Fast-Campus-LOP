@@ -1,10 +1,20 @@
-**1~2주차 : 정제된 toy data로 뼈대를 이루는 함수 작성**
+### **Project 목적 : 대용량 Data에 대한 엑셀 수작업을 Pandas를 이용한 자동화** 
+
+
+
+1주차 : 정제된 toy data로 main function 작성
+
+2주차 : 1주차 함수 적용 후 오류에 대한 보완
 
 **3주차 : 정제되지 않은 full data 적용시 Data 전처리 문제 발생**
 
+4주차 : full data를 통한 결과 작성
 
 
-**1번째 문제 : [숫자인 금액 column을 문자열(object)로 인식하여 숫자로 변경 시도 중 에러 발생]**
+
+-3주차-
+
+#### [1번째 문제] 숫자인 dollar 금액 column을 문자열(object)로 인식하는 오류 발생
 
 - **1안) astype을 이용 문자열을 숫자 변경 시도하였으나,** 
 
@@ -20,7 +30,7 @@
 
 ------
 
--  **2안) locale 을 이용 콤마 제거 시도하였으나 변경  실패**
+-  **2안) locale 을 이용 콤마 제거 시도하였으나 변경  실패**
 
 1. locale 을 이용하여  천단위의 쉼표를 숫자로 인식하고자 함
 
@@ -77,7 +87,37 @@ df['금액($)'].apply(remove_comma)
 
 ![](https://blogfiles.pstatic.net/MjAyMDA5MjNfMTE3/MDAxNjAwODU3MDUyNDkz.PHh3wlPGCLtrbsn3aI8knC_ngdmaezKOqEYIoEubQuMg.xd193Q2Crmmsy26KEXpgQWlqXaWN1qlkgM5HaOtHyakg.PNG.ikeyada/200923_float_does_not_have_replace_attribute2.PNG)
 
-**2번째 문제 : Sample Function 을 돌린 후에 dictionary 형태 data를 frame으로 바꿔주는데 오류 발생**
+#### **[1번째 문제 해결안]**
+
+- astype을 적용하면 되나 빈칸이나 '-'이 있을때는 먼저 바꿔줘야 함, 이때 **공백** 에 유의해야함
+
+```python
+df.loc[df['금액($)']=='-'] #그냥 '-'으로 하면 조회가 안됨
+df.loc[df['금액($)']==' - '] # 하이픈에 좌우로 공백이 있어 이부분을 넣어주면 조회 성공
+```
+
+
+
+```python
+df['금액($)'] = df['금액($)'].str.replace(' - ','0') # 이 부분이 핵심, 멘토님이 알려주심
+df.sort_values(by='금액($)', ascending=[True]).head() # -이 0으로 바뀌었는지 알기 위해 오름차순으로 숫자를 정렬
+```
+
+- 얼핏 보기에 '-'으로 보여도 raw data에 공백이 있는지 없는지 잘 살펴야 함
+
+  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMTI5/MDAxNjAxMDgxNDM4MTYz.A_d0JZkvJvcqlooOKJJZPoNL3xE0NApTxzTdxPJJFfkg.cyGZ_FSCXR3NBkeIxAWptYCjQ6YKti7XmWSyWeQFpvgg.PNG.ikeyada/200926_%EA%B8%88%EC%95%A1%EC%97%90_%ED%95%98%EC%9D%B4%ED%94%88%EC%9D%B4_%EC%9E%88%EC%9D%8C_%EA%B7%B8%EB%9E%98%EC%84%9C_astype%EC%9D%B4_%EC%95%88_%EB%A8%B9%EC%9D%8C2.PNG)
+
+
+
+- 하이픈을 0으로 변경
+
+![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMjgw/MDAxNjAxMDgzNjI3NjQ3.TOPe-_XhNeVvSFKmauepEMnPr_O_3sFwhZCb97KwBMog.xBM3mPeUdrlH3cHd9VJ7tetqkTz_Nbky0X4E9j7Hatgg.PNG.ikeyada/200926_%ED%95%98%EC%9D%B4%ED%94%88_0_%EB%B3%80%EA%B2%BD_%EC%84%B1%EA%B3%B5_input.PNG)
+
+![](https://blogfiles.pstatic.net/MjAyMDA5MjZfOTIg/MDAxNjAxMDgzNjI3NjQ5.sJjPxcTj_PGHeHG5EOfR7kL0zkQR1bOfGR6MTqkbT74g.P18dql64nd5-XwJEiW3D_cc-RnvuvVs6I5g5BHNi9kcg.PNG.ikeyada/200926_%ED%95%98%EC%9D%B4%ED%94%88_0_%EB%B3%80%EA%B2%BD_%EC%84%B1%EA%B3%B5_output.PNG)
+
+
+
+#### **[2번째 문제]  dictionary 형태 data를 frame으로 바꿔주는데 오류 발생**
 
 toy example data 돌린 후 output dictionary 형태 
 
@@ -99,8 +139,74 @@ output = pd.DataFrame(s, columns=['항목', '지역', '월', '연도', '당월',
 
 
 
-**3번째 문제 추가 질문**
+#### [2번째 문제 해결안]
 
-**금액 숫자에 11596613. 가 있어서 소수점이 붙은 숫자의 처리는?**
+- 먼저 a 라고 list 를 형성함  [ ] 명심할 것
 
-**금액($)에서 소수점이 붙은 숫자가 있는지 확인 가능한가?**
+```python
+a = []
+
+for i in range(len(info)):
+    s = sample_function(category=categorys[i], place=places[i], month=6, year=2020)
+    print(s)
+    a.append(s)
+    
+output = pd.DataFrame(a)
+```
+
+![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMjg0/MDAxNjAxMDkyNjcyOTU3.YtOmzceGFs7vThPSOVzwYv5Ua6eqRBJljS6NICH0cpsg.XJuO1vP1C8r3tSPSEXFIK9eZe7-D_a8w4jZaaF0Uu2cg.PNG.ikeyada/200926_%EC%B5%9C%EC%A2%85_output_%EC%A4%91%EA%B0%84%ED%98%95%ED%83%9C.PNG)
+
+
+
+
+
+#### **[3번째 문제] ****여러 개의 월 data를 연속적으로 붙였는데 원본 data가 누락된 것을 확인함**
+
+- 원본 데이타 : 금액 부분에 숫자가 표기됨
+
+  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMTc3/MDAxNjAxMDgyMDU3ODY5.luJo_ZhWLBaYXJEdznzDrLeiIDkfCcN9ShU_3tEcGZ8g.rxX8u2PXoXfmrwVGpm4r4vxQtnxCnvPyFB5NIbI9Ex8g.PNG.ikeyada/200924_%EC%97%91%EC%85%80_%EC%9B%90%EB%B3%B8_%EB%8D%B0%EC%9D%B4%ED%83%80.PNG)
+
+  
+
+- 파이썬에서 붙인 데이타 : 금액 부분이 숫자가 없고 NaN 표기됨
+
+![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMTE1/MDAxNjAxMDgyMjQwNjU1.WY3a07JbJnuOjlxLNYQkzcgy7atQutmTMLhSn_Wo-Ocg.9hJiET6__wziypVo65G15fjt8WfKD3WOua75NMrzK7og.PNG.ikeyada/200924_python_%EB%B6%99%EC%9D%B8_%EB%8D%B0%EC%9D%B4%ED%83%80_NaN.PNG)
+
+
+
+
+
+- 각 월별 data를 합치기 전에는 금액 data가 있었는지를 확인한 결과, 금액 data는 있었음
+
+  **즉 각 월별 data를 합친 후에 금액 data가 숫자에서 숫자가 없는 NaN으로 변함**
+
+  **[data를 합치기 전 금액 column 값 : 숫자 존재]**
+
+  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMjE4/MDAxNjAxMDc0NTE1ODY4.G_bV0XozojVqnkeIcgqI-pb9seXjvZbxsK0VLawcd10g.sAO5_oql1UH65Fsm08qJpeVUyZng-t_thzEPb-1psKQg.PNG.ikeyada/200926_%ED%95%A9%EC%B9%98%EA%B8%B0_%EC%A0%84%EC%97%90%EB%8A%94_data%EA%B0%80_%EC%9E%88%EC%97%88%EB%8B%A4.PNG)
+
+
+
+- data concat 오류 
+
+  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfODIg/MDAxNjAxMDgxODI5NjAz.cmVw3URblgIVovaNWP4ispVOXt_4SC-_QBKm3q2TeAAg.APeKxY9QMxQcTWaiGSIZd2j9jhfqxumSN-dQzdRzZXsg.PNG.ikeyada/200926_data_concat_%EC%98%A4%EB%A5%98.PNG)
+
+
+
+#### **[3번째 문제 해결안]**
+
+#### **첫째, 중량(Kg)과 중량(KG)로 Column Name이 미세하게 다름,**
+
+**둘째, 엑셀 상의 column name이 같아도 눈에 보이지 않는 공백이 차이나서**
+
+####          **column header를 일괄적으로 복사 하였더니 data가 잘 붙음**
+
+
+
+- column name을 철자가 같아도 다시 hard copy 함. data 붙이기 성공
+
+  ![](https://blogfiles.pstatic.net/MjAyMDA5MjZfMTg0/MDAxNjAxMDgxNzA0OTk4.8JWHvzV_a8U_i5Aa6byq-LUpqBxGjvV4noR3viECPKcg.Zb2UEkZYSw-FamrFVY06X9aQYmrMbyYGNwUw_CCRnMQg.PNG.ikeyada/200926_data_concat_%EC%84%B1%EA%B3%B5.PNG)
+
+
+
+
+
