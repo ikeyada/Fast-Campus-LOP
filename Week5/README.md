@@ -56,13 +56,13 @@ Input 변수 X : 여러개 Item No 들의 매출 금액 분기별 추이
 
 
 
-- Data의 Size :  대략 7백만 Row * 7개 Column
+- ​    **X를 만들어 가는 과정**                                        
 
-                           영상이나 이런 Data Size에는 훨씬 못 미치겠지만, 엑셀을 가공하는 저에게는 부담스러운 Data Size임
+  -. Data의 Size :  대략 7백만 Row * 7개 Column
 
+  ​                         영상이나 이런 Data Size에는 훨씬 못 미치겠지만, 엑셀을 가공하는 저에게는 부담스러운 Data Size임
 
-
--     **X를 만들어 가는 과정**                                        
+  
 
 **1) 특정 조건으로 Data 추출 및 가공**
 
