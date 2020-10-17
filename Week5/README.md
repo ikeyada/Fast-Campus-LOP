@@ -6,13 +6,15 @@
 
 판다스를 활용하여 산출하였고, 원하는 조건에 맞는 Item들만 필터링하여 추출함
 
-
+------
 
 **10월**에는 추출된 Item들에 대해  Micro 분석(국내 지역, 해외 나라 별)을 하는 부분을 진행하려 했으나,
 
 우선 금주에는 매출 금액은 있는데 내가 정확한 Item No. 를 모르는 경우에 해당 Item을 찾아가는 과정을 다루고자함
 
 (Item No.를 전임자가 알려주지 않은 경우 또는 문서 상에서 지워진 경우)
+
+------
 
 
 
@@ -36,7 +38,7 @@ Input 변수 X : 여러개 Item No 들의 매출 금액 분기별 추이
 
 * **숫자값은 정확히 일치하는 것이 아니기에, 시계열 추이(패턴?)를 비교하여 유사한 패턴을 가지는 X를 찾고자 함**
 
-
+------
 
  멘토님께 상의한 결과 
 
@@ -50,6 +52,8 @@ Input 변수 X : 여러개 Item No 들의 매출 금액 분기별 추이
 
                                              X의 분기별 매출 Raw Data를 만들어 가는 과정 자체가 저 자신에게는 의미가 있음 *^^* 
 
+------
+
 
 
 - Data의 Size :  대략 7백만 Row * 7개 Column
@@ -58,9 +62,9 @@ Input 변수 X : 여러개 Item No 들의 매출 금액 분기별 추이
 
 
 
--     X를 만들어 가는 과정                                        
+-     **X를 만들어 가는 과정**                                        
 
-1) 특정 조건으로 Data 추출 및 가공
+**1) 특정 조건으로 Data 추출 및 가공**
 
 ```python
 place = '인천 남동구'
@@ -84,9 +88,11 @@ output_중국.drop(['중량(Kg)', '수량', '연도', '월'],axis=1, inplace=Tru
 
 
 
-2) 다른 Data와 Merge
+**2) 다른 Data와 Merge**
 
 ① 다른 나라 Data도 추출
+
+
 
 ```python
 # 대부분 inner join에서는 한개의 조건만 사용하는데, 여기선 두개의 조건 "년월"과 "HS_CODE" 두개를 활용해야 함
@@ -107,7 +113,7 @@ output2 = pd.merge(output, info_time, how='left', on='년월')
 output2["금액(백만원)"]= output2["금액_Total"]*output2["월 환율"]/1000000
 ```
 
-③ 개별 Item들의 분기별 매출 합계를 구함(Pivot)
+**3) 개별 Item들의 분기별 매출 합계를 구함(Pivot)**
 
 ```python
 output2_P = pd.pivot_table(output2, index=['HS_CODE'], columns='분기', values='금액(백만원)',aggfunc=np.sum).reset_index()
