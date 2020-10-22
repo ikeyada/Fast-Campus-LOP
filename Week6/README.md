@@ -2,7 +2,7 @@
 
 
 
-1. **특정 코드 # 1 또는 특정 코드 #2에 해당하는 조건 설정****
+1. **특정 코드 # 1 또는 특정 코드 #2에 해당하는 조건 설정****
 
 제놀 필터링 연습.ipynb
 
@@ -40,6 +40,8 @@ what_I_want = df.loc [condition_1]
 
 
 3. **무역협회 수출입 통계 크롤링하기** (https://blog.naver.com/jaden-agent/221999057921)
+
+   ![](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20201022202958004.png)[
 
 ```python
 import time
