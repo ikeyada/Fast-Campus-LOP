@@ -87,7 +87,7 @@ condition_1 = (df['manufacturer'].str.lower().str.contains("bodi") )
 
 1) 크롤링 기초 지식 - Chrome 개발자 도구 사용법 -1,2
 
-![](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20201022202958004.png)
+![](https://blogfiles.pstatic.net/MjAyMDEwMjJfMjU1/MDAxNjAzMzY2MTc1ODcw._U78vvHih_cIpg-IckGHC3CVBWgVhR5q-BlpF6CFuZsg.FB-r_al0uGMV3-ajgGNFYOFzAgrQMdf4op5louh1RIIg.PNG.ikeyada/201022_css_selector_2.png)
 
 2) 크롤링 기초 지식 - 크롤링 주의사항
 
