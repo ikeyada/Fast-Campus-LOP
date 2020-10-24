@@ -22,7 +22,27 @@ df.loc[condition_1]
 
 
 
+- **Mentor님 꿀팁 #1**
+
+```
+# or에 해당하는 글자는 원화 표시 위에 있는 shift 누르고 '|'임
+condition_1 = (df['HS_CODE'] == 3822002019 ) |  (df['HS_CODE']== 8479899099
+df.loc[condition_1]
+```
+
+
+
+```python
+# 아무래도 위에 방법은 3개 이상의 조건을 설정하기가 어려움 그래서 꿀팁이 다음임.
+code = [3822002019, 8479899099]
+condition_1 = df['HS_CODE'].isin(code)
+```
+
+
+
 2. **json 화일 열기 &  특정 문자와 유사한 row 찾기** (https://open.fda.gov/  API 활용 가능)
+
+   FDA_JSON 열기.ipynb
 
 ```python
 # PANDAS 책에 있느 Syntax로 안 열린다
@@ -35,13 +55,45 @@ what_I_want = df.loc [condition_1]
 # 만약에 boditech와 유사한 문자를 찾고 싶다면 어떻게 찾을까???
 ```
 
+- **Mentor님 꿀팁 #2**
+
+```
+#대,소문자를 구별해야 되는데 우선은 대문자까지 알고 있을때
+#condition_1 = (df['manufacturer'].str.contains("Bodi") )
+
+#대,소문자를 정확히 모를때는 아마 거의 모든 경우가 해당되겠지. 모든 문자를 소문자로 바꾼다음에 찾는다
+condition_1 = (df['manufacturer'].str.lower().str.contains("bodi") )
+```
+
 ![](https://blogfiles.pstatic.net/MjAyMDEwMjJfMTcg/MDAxNjAzMzU2MzQ3OTM5.tWQ7mqGNyC0Kaa61h93sM1pvXCW8hhb24PC3frzLs2Eg.3eEVLs2xVxttc6u01EpeR3zpqVLr3osnXJotb_oKLYYg.PNG.ikeyada/201022_OPEN_FDA%ED%99%94%EB%A9%B4.PNG)
 
 
 
 3. **무역협회 수출입 통계 크롤링하기** (https://blog.naver.com/jaden-agent/221999057921)
 
-   ![](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20201022202958004.png)[
+   **Mentor님 꿀팁 #3**
+
+| Python Crawling 공부 순서                                    |
+| ------------------------------------------------------------ |
+| ① 먼저, 크롤링은 HTML에 대한 충분한 이해 그리고 웹에 대한 이해가 있어야 원하는 방식으로 자유자재로 다뤄보실 수 있습니다.  금방 뚝딱하고 나오면 좋은데 웹사이트 분석과 테스팅 하는 시간이 어느 정도 소요 된다는 점을 미리 말씀드립니다ㅎㅎ |
+| ②  selenium 크롤링의 경우 일단 로컬 컴퓨터에서 실행을 해주셔야 합니다. |
+| ③ pycharm이나 visual studio 그리고 파이썬을 설치 후 진행해주셔야 하는데, 아마 강의 내용에서 찾아보실 수 있을 것 같습니다. |
+| ④ selenium 버전은 크롬 브라우저의 버전과 매칭이 되어야 크롤링 해오실 수 있습니다~ |
+| ⑤ 셋업이 되셨다면 일단 가지고 계신 소스코드가 잘 돌아가는지 먼저 실행해 보시고 문제가 없으시다면, 그 때부터 필요 없는 코드들을 하나씩 제거해 나가시면서 원하시는 방향에 맞게 변경해 보시는 것을 추천 드립니다! |
+
+* 패스트 캠퍼스 3주차 크롤링 강의
+
+1) 크롤링 기초 지식 - Chrome 개발자 도구 사용법 -1,2
+
+![](C:\Users\USER\AppData\Roaming\Typora\typora-user-images\image-20201022202958004.png)
+
+2) 크롤링 기초 지식 - 크롤링 주의사항
+
+3)  
+
+
+
+**[Coming Soon - 차주에 공부해야할 Code]**
 
 ```python
 import time
