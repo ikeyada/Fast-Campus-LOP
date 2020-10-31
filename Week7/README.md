@@ -61,6 +61,8 @@ WEEK6_20년_나라별_ 월별 PIVOT_제놀_바니.ipynb
 output_송파_P.sort_values(by=202009, inplace=True,ascending=False)
 ```
 
+
+
 ------
 
 
@@ -85,7 +87,11 @@ companys.value_counts()
 
 ![](https://blogfiles.pstatic.net/MjAyMDEwMzFfMTQ2/MDAxNjA0MTExOTU4MjI3.wfi_YBmR6UfzL8H65XGdYyUkUMOtq5a3KMl6EYecbpAg.NoEg_xY9zPuu6_rFax6Y_yG949byqQ_fbSTwPz5sE8Mg.PNG.ikeyada/201031_%ED%9A%8C%EC%82%AC%EB%93%A4_%EA%B0%AF%EC%88%98.PNG)
 
-5. **오류 관련****
+------
+
+
+
+5. **오류 관련**
 
 WEEK7_회사 붙이기.ipyb
 
